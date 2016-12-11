@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../assets/theme.css">
+    <title>Welcome to Bootcamp</title>
+    <style type=”text/css”>
+        h1 {color:red}
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <h1>Object Prototypes</h1>
+</div>
+
+<div class="section description">
+    <ul>
+        <li class="item">Create an object prototype using an object <b>constructor function</b>.</li>
+        <li class="item">Create new objects from the same prototype using <b>new </b> keyword.</li>
+        <li class="item">Add properties or methods to objects or object prototype</li>
+    </ul>
+</div>
+
+<div class="section example">
+    <h2>Example 1</h2>
+    <!--Example starts here -->
+    <p>Object prototype using an object constructor function:-- </p>
+    <pre>
+        function Bootcamp(session, count) {
+            this.session = session;
+            this.count = count;
+        }
+    </pre>
+    <p>Create new objects from the same prototype (Bootcamp):-- </p>
+    <pre>
+        var day1 = new Bootcamp("HTML & CSS", "18");
+        var day2 = new Bootcamp("SASS & CSS", "20");
+    </pre>
+
+    <script>
+        function Bootcamp(session, count) {
+            this.session = session;
+            this.count = count;
+        }
+
+        var day1 = new Bootcamp("HTML & CSS", "18");
+        var day2 = new Bootcamp("SASS & CSS", "20");
+
+    </script>
+    <!--Example end here -->
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">The constructor function is the prototype for Bootcamp objects (day1 and day2).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section example">
+    <h2>Example 2</h2>
+
+    <p>Add a new property and method to an existing object (day1):-- </p>
+    <pre>
+        day1.topicsCovered = 2;
+
+        day1.myDetails = function () {
+            console.log(this.session + "->" + this.count +"->" + this.topicsCovered);
+        };
+    </pre>
+
+    <script>
+        day1.topicsCovered = 1;
+        day1.myDetails = function () {
+            console.log(this.session + "->" + this.count +"->" + this.topicsCovered);
+        };
+
+        day1.myDetails();
+        day2.myDetails(); // see error in console
+    </script>
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">The property (topicsCovered) and method (myDetails) will be added to day1 only and  not to day2.</li>
+            <li class="item">See the console error for day2.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section example">
+    <h2>Example 3</h2>
+
+    <p>Add a new property and method to existing prototype:-- </p>
+    <pre>
+        Bootcamp.prototype.duration = "2Hrs";
+        Bootcamp.prototype.allDetails = function () {
+            console.log(this.session + "->" + this.count + "->" + this.duration);
+        };
+    </pre>
+
+    <script>
+        Bootcamp.prototype.duration = "2Hrs";
+        Bootcamp.prototype.allDetails = function () {
+            console.log(this.session + "->" + this.count + "->" + this.duration);
+        };
+
+        day1.allDetails();
+        day2.allDetails();
+    </script>
+
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">The property (duration) and method (allDetails) are added to prototype.</li>
+            <li class="item">And property and method ultimately added to day1 and day2 objects both.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+  <style>
+    .d1 {
+      float: left;
+      padding: 20px;
+      width: 300px;
+      height: 300px;
+      background: red;
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      border: 1px solid white;
+    }
+    .d2 {
+      float: left;
+      padding: 20px;
+      width: 250px;
+      height: 240px;
+      background: blue;
+      border: 1px solid white;
+    }
+    .d3 {
+      float: left;
+      padding: 20px;
+      width: 200px;
+      height: 180px;
+      background: yellow;
+      border: 1px solid white;
+    }
+
+  </style>
+  <script>
+    function listernClickEvent() {
+      //document.getElementById('d1').addEventListener("click", myclick);
+
+      //Event capturing
+      document.getElementById('d1').addEventListener("click", myclick, true);
+      document.getElementById('d2').addEventListener("click", myclick, true);
+      document.getElementById('d3').addEventListener("click", myclick, true);
+
+      // //Event bubbling
+      // document.getElementById('d1').addEventListener("click", myclick1, false);
+      // document.getElementById('d2').addEventListener("click", myclick1, false);
+      // document.getElementById('d3').addEventListener("click", myclick1, false);
+    }
+
+
+    function myclick(event) {
+      var target = event.target || event.srcElement;
+      alert('Event capturing - You Clicked '+target.id + " And event is currently on "+this.id);
+      this.style.background = 'black';
+      this.style.color = 'white';
+      //Stop propagation, I know how to handle this event
+      event.stopPropagation();
+    }
+
+    function myclick1(event) {
+      var target = event.target || event.srcElement;
+      alert('Event bubbling - You Clicked '+target.id + " And event is currently on "+this.id);
+      this.style.background = 'purple';
+      this.style.color = 'white';
+      //Stop propagation, I know how to handle this event
+      //event.stopPropagation();
+    }
+  </script>
+  <body onload="listernClickEvent();">
+    <p>
+      <b>Bubbling and capturing</b>
+    </p>
+    <div style="width:100%;float:left;margin: 20px;">
+    <div class="d1" id="d1">1
+      <div class="d2" id="d2">2
+          <div class="d3" id="d3">3
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <hr>
+
+    <p>
+      Event capturing
+    </p>
+    <xmp>
+      document.getElementById('d1').addEventListener("click", myclick, true);
+    </xmp>
+    <hr>
+    <p>
+      Event bubbling
+    </p>
+    <xmp>
+      document.getElementById('d1').addEventListener("click", myclick, false);
+    </xmp>
+    <hr>
+    <p>
+      Stop Propagation
+    </p>
+    <xmp>
+      event.stopPropagation();
+    </xmp>
+  </body>
+</html>

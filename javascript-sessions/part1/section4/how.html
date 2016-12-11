@@ -1,0 +1,31 @@
+<html>
+  <body>
+      <script>
+        function main() {
+          setTimeout(timePass, 0);
+          a();
+          console.log("I am in main()");
+        }
+
+        function a() {
+          b();
+          console.log("I am in a()");
+        }
+
+        function b() {
+          c();
+          console.log("I am in b()");
+        }
+
+        function c() {
+          console.log("I am in c()");
+        }
+
+        function timePass() {
+          console.log("I am in timePass()");
+        }
+
+        main();
+      </script>
+  </body>
+</html>

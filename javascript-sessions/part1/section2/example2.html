@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../assets/theme.css">
+    <title>Welcome to Bootcamp</title>
+    <style type=”text/css”>
+        h1 {color:red}
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <h1>Math & Date Object</h1>
+</div>
+
+<div class="section description">
+    <ul>
+        <li class="item">The Math object allows you to perform mathematical tasks and includes several mathematical methods.</li>
+        <li class="item">The Date object lets you work with dates.</li>
+    </ul>
+</div>
+<div class="section example">
+    <h2>Example 1</h2>
+    <!--Example starts here -->
+    <p>Random Number => <span id="random"></span> </p>
+    <p>Math.min(67, 4, 98, -1, 32, -8); => <span id="min"></span> => <span id="max"></span></p>
+    <p>Math.floor(6.5) => <span id="floor"></span></p>
+    <p>Math.ceil(6.5) => <span id="ceil"></span></p>
+    <p>Math.round(6.5) => <span id="round"></span></p>
+    <script>
+        document.getElementById("random").innerHTML =  Math.random();
+        document.getElementById("min").innerHTML =  Math.min(67, 4, 98, -1, 32, -8);
+        document.getElementById("max").innerHTML =  Math.max(67, 4, 98, -1, 32, -8);
+        document.getElementById("floor").innerHTML =  Math.floor(6.5);
+        document.getElementById("ceil").innerHTML =  Math.ceil(6.5);
+        document.getElementById("round").innerHTML =  Math.round(6.5);
+    </script>
+    <!--Example end here -->
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive).</li>
+            <li class="item">Math.round() rounds a number to the nearest integer.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section example">
+    <h2>Example 2</h2>
+    <!--Example starts here -->
+    <p>Date => <span id="date"></span> </p>
+    <p>Fixed Date => <span id="fixedDate"></span> </p>
+    <p>Get Day => <span id="getDay"></span> </p>
+    <p>Get Full Year => <span id="getFullYear"></span> </p>
+    <script>
+        document.getElementById("date").innerHTML =  new Date();
+
+        var myDate = new Date("2016-07-11"); // Monday
+        document.getElementById("fixedDate").innerHTML = myDate;
+        document.getElementById("getDay").innerHTML =  myDate.getDay();
+        document.getElementById("getFullYear").innerHTML =  myDate.getFullYear();
+    </script>
+    <!--Example end here -->
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">A date consists of a year, a month, a day, an hour, a minute, a second, and milliseconds.</li>
+            <li class="item">Date object has many methods. getDay() returns the weekday as a number (0-6)</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
+</html>

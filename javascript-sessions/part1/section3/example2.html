@@ -1,0 +1,53 @@
+<html>
+  <script>
+    function changeColor(_color) {
+      document.getElementById('myid').style.background = _color;
+    }
+
+    function listernClickEvent() {
+      document.getElementById('listernerExample').addEventListener("mouseover", mouseoverListerner);
+      document.getElementById('listernerExample').addEventListener("mouseout", mouseoutListerner);
+    }
+
+    function mouseoverListerner() {
+      document.getElementById('listernerExample').style.background = 'red';
+      document.getElementById('listernerExample').innerHTML = "Dont mouse over me dude..."
+    }
+    function mouseoutListerner() {
+      document.getElementById('listernerExample').style.background = 'yellow';
+      document.getElementById('listernerExample').innerHTML = "Thanks you for leaving me.."
+    }
+  </script>
+  <body onload="listernClickEvent();">
+    <p>
+      <b>Java Script Event handler</b>
+    </p>
+    <xmp>
+      <input type="button" onClick="changeColor('red');" value="Red">
+    </xmp>
+    <br>
+    <input type="button" onClick="changeColor('red');" value="Red">
+    <input type="button" onClick="changeColor('green');" value="Green">
+    <input type="button" onClick="changeColor('yellow');" value="Yellow">
+
+    <div style="float:left;width:100%;margin:20px;">
+      <div id="myid" style="width:200px;height:200px;float:left;background:blue;"></div>
+    </div>
+    <hr>
+    <p>
+      <b>Event Listerns</b>
+    </p>
+    <xmp>
+      document.getElementById('listernerExample').addEventListener("mouseover", mouseoverListerner);
+
+      document.getElementById('listernerExample').removeEventListener("mouseover", mouseoverListerner);
+    </xmp>
+    <div style="float:left;width:100%;margin:20px;">
+      <div id="listernerExample" style="width:200px;height:200px;float:left;background:yellow;"></div>
+    </div>
+    <hr>
+    <p>
+      <b>Chrome Dev Tool - Event Listerns</b>
+    </p>
+  </body>
+</html>
