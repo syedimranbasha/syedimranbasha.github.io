@@ -1,6 +1,0 @@
-{
-  "name": "Javascript-session1",
-  "tagline": "F2E Bootcamp",
-  "body": "# JavaScript Session\r\n\r\n##Part 1\r\n- Section 1 ==> Variable, Data types & scope\r\n- Section 2 ==> Functions, Date, Math object, Exception Handling\r\n- Section 3 ==> Event handlers & listeners, Forms\r\n- Section 4 ==> How it works?\r\n- Workshop ==> Calculator\r\n\r\nhttps://harpreet-saini.github.io/javascript-session/index.html\r\n\r\n##Part 2\r\n- Section 1 ==> Object prototype & Inheritence\r\n- Section 2 ==> Modifiers\r\n- Section 3 ==> Closures & Bindings\r\n- Workshop ==> Calculator\r\n\r\nhttps://harpreet-saini.github.io/javascript-session/index2.html",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
