@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../assets/theme.css">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .calculator-container{
+            display:flex;
+            flex-wrap: wrap;
+            flex: 0 1 60%;
+            width:300px;
+        }
+        .buttons,.result{
+            display: flex;
+            flex-wrap: wrap;
+            flex: 0 1 100%;
+        }
+        .result{
+            height: 50px;
+            border: 1px solid black;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 1.5em;
+            background: #000;
+            color:#fff;
+            padding:0 10px;
+        }
+        .button{
+            display:flex;
+            flex: 0 1 25%;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            border: 1px solid black;
+            border-top:none;
+            border-left:none;
+            cursor: pointer;
+            background: -webkit-linear-gradient(top,#d2d2d2,#ddd);
+            font-size:2em;
+        }
+        .button:nth-child(4n+1){
+            border-left: 1px solid black;
+        }
+        .button:nth-child(4n),.button:last-child{
+            background: #f98110;
+            color: #fff;
+        }
+        .zero-btn{
+            flex-grow: 2;
+        }
+        .doubleBordered{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Workshop: Calulator UI</h1>
+</div>
+<div class="section description">
+    <ul>
+        <li class="item">Layout is done using FlexBox.</li>
+        <li class="item">button styles using n-th child.</li>
+    </ul>
+</div>
+<div class="section example">
+    <h2>Example</h2>
+    <!--Example starts here -->
+    <div class="calculator-container">
+        <div class="result" id="result">0</div>
+        <div class="buttons">
+            <span class="button resetBtn" onclick="resetCalculator();">AC</span>
+            <span class="button negative operator">+/-</span>
+            <span class="button operator percent">%</span>
+            <span class="button operator" onclick="operatorPressed('/');">/</span>
+            <span class="button number" onclick="numberPressed(7);">7</span>
+            <span class="button number" onclick="numberPressed(8);">8</span>
+            <span class="button number" onclick="numberPressed(9);">9</span>
+            <span class="button operator" onclick="operatorPressed('*');">*</span>
+            <span class="button number" onclick="numberPressed(4);">4</span>
+            <span class="button number" onclick="numberPressed(5);">5</span>
+            <span class="button number" onclick="numberPressed(6);">6</span>
+            <span class="button operator" onclick="operatorPressed('-');">-</span>
+            <span class="button number" onclick="numberPressed(1);">1</span>
+            <span class="button number" onclick="numberPressed(2);">2</span>
+            <span class="button number" onclick="numberPressed(3);">3</span>
+            <span class="button operator" onclick="operatorPressed('+');">+</span>
+            <span class="button number zero-btn" onclick="numberPressed(0);">0</span>
+            <span class="button number dot">.</span>
+            <span class="button  operator" onclick="operatorPressed('=');">=</span>
+        </div>
+    </div>
+    <!--Example end here -->
+    <div class="section example-description">
+        <ul>
+            <li class="item">Calculator is only for +, -, * and / operations.</li>
+            <li class="item">BODMAS rule is not considered.</li>
+            <li class="item">AC button resets the calculator. </li>
+        </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var operand1= undefined, operand2= undefined, operator=undefined;
+    var concatNumberOnScreen= undefined, result = undefined;
+
+    function resetCalculator(){
+        document.getElementById("result").innerHTML = "0";
+        operand1= undefined;
+        operand2= undefined;
+        operator=undefined;
+        concatNumberOnScreen= undefined;
+        result = undefined;
+    }
+
+    function handleNumbersAndDisplayOnScreen(num){
+
+        /* If operator is undefined, it means this is our first operand; else its second operand */
+        /* num undefined is checked for 1 vs 123 */
+        if(operator == undefined) {
+            if(operand1 == undefined)
+                operand1 = num.toString();
+            else
+                operand1+= num.toString();
+
+            concatNumberOnScreen = operand1;
+        }
+        else{
+            if(operand2 == undefined)
+                operand2 = num.toString();
+            else
+                operand2+= num.toString();
+
+            concatNumberOnScreen = operand2;
+        }
+
+        document.getElementById("result").innerHTML = concatNumberOnScreen;
+
+    }
+
+    function numberPressed(num) {
+        handleNumbersAndDisplayOnScreen(num);
+    }
+
+    function operatorPressed(op) {
+        console.log(" Num1=>" + operand1 + " Num2=>" + operand2 + " Operator=>" + operator);
+
+            switch (operator) {
+                case '+':
+                    result = Number(operand1) + Number(operand2);
+                    break;
+                case '-':
+                    result = Number(operand1) - Number(operand2);
+                    break;
+                case '*':
+                    result = Number(operand1) * Number(operand2);
+                    break;
+                case '/':
+                    result = Number(operand1) / Number(operand2);
+                    break;
+                case '=':
+                    if(operator == '+')
+                        result = Number(operand1) + Number(operand2);
+                    else if(operator == '-')
+                        result = Number(operand1) - Number(operand2);
+                    else if(operator == '*')
+                        result = Number(operand1) * Number(operand2);
+                    else if(operator == '/')
+                        result = Number(operand1) / Number(operand2);
+                    break;
+            }
+
+            if(operator == undefined){}
+            else {
+                document.getElementById("result").innerHTML = result;
+                operand1 = result;
+                operand2 = undefined;
+            }
+
+            operator = op;
+
+    }
+</script>
+</body>
+</html>

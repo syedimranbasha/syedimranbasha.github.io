@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../assets/theme.css">
+    <title>Welcome to Bootcamp</title>
+    <style type=”text/css”>
+        h1 {color:red}
+    </style>
+</head>
+
+<body>
+<div class="header">
+    <h1>Variable & Data Types</h1>
+</div>
+
+<div class="section description">
+    <ul>
+        <li class="item">JavaScript variables are containers for storing data values.</li>
+        <li class="item">Javascript variable can hold many data types like number, string, array, object etc., but they are case sensitive.</li>
+        <li class="item"><b>var</b> is used to create a variable.</li>
+        <li class="item">JavaScript has <b>dynamic types</b>. The same variable can be used as different type.</li>
+    </ul>
+</div>
+<div class="section example">
+    <h2>Example 1</h2>
+    <!--Example starts here -->
+    <p id="message"></p>
+    <p id="message0"></p>
+    <p id="message1"></p>
+    <p id="message2"></p>
+    <p id="message3"></p>
+    <script>
+        var a = 15, b=10;    // Number
+        var total;
+        document.getElementById("message").innerHTML = total; // undefined
+
+        total = a+b;
+        document.getElementById("message0").innerHTML = total; // 25
+
+        var age = 15;    // Number
+        var name = "Johnson";  // String
+
+        var result = age + name;
+        document.getElementById("message1").innerHTML = result;
+
+        result = age + 5 + name;
+        document.getElementById("message2").innerHTML = result;
+
+        result = name + age + 5;
+        document.getElementById("message3").innerHTML = result;
+
+    </script>
+    <!--Example end here -->
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">A variable declared without a value will have the value undefined. </li>
+            <li class="item">When adding a number and a string, JavaScript will treat the number as a string. </li>
+            <li class="item">JavaScript evaluates expressions from left to right.</li>
+            <li class="item">If the first operand is a string, all operands are treated as strings.</li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="section example">
+    <h2>Example 2</h2>
+    <!--Example starts here -->
+    <p id="test"><b>Example - </b>var x; var x=5; var x = "Bootcamp"; var x = true; </p>
+    <p id="test0"></p>
+    <p id="test1"></p>
+    <p id="test2"></p>
+    <p id="test3"></p>
+
+    <p id="array0"><b>Array Example- </b> var bootcamp = ["HTML", "CSS", "JavaScript"];  </p>
+    <p id="array1"></p>
+    <p id="array2"></p>
+
+    <p id="obj"><b>Object Example- </b> var topics = {html:"HTML & HTML 5", css:"CSS and SAAS", js:"JS Part 1 & Part 2"};   </p>
+    <p id="obj0"></p>
+    <p id="obj1"></p>
+
+    <script>
+        var x;  // x is undefined now
+        document.getElementById("test0").innerHTML = x;
+        var x = 5; // x is a Number now
+        document.getElementById("test1").innerHTML = x;
+        var x = "Bootcamp"; // x is a String now
+        document.getElementById("test2").innerHTML = x;
+        var x = true; // x is boolean now
+        document.getElementById("test3").innerHTML = x;
+
+        var bootcamp = ["HTML", "CSS", "JavaScript"];  // Array
+        document.getElementById("array1").innerHTML = bootcamp[0];
+        document.getElementById("array2").innerHTML = bootcamp[2];
+
+        var topics = {html:"HTML & HTML 5", css:"CSS and SAAS", js:"JS Part 1 & Part 2"};    // Object
+        document.getElementById("obj0").innerHTML = topics.css;
+        document.getElementById("obj1").innerHTML = topics.html;
+
+        var myvariable;
+        document.getElementById("type").innerHTML = "Typeof 'var myvariable;' is " + typeof (myvariable);
+        document.getElementById("type0").innerHTML = "Typeof John is " + typeof "John";
+        document.getElementById("type1").innerHTML = "Typeof 3.14 is " + typeof 3.14;
+        document.getElementById("type2").innerHTML = "Typeof false is " + typeof false;
+        document.getElementById("type3").innerHTML = "Typeof [1,2,3,4] is " + typeof [1,2,3,4];
+        document.getElementById("type4").innerHTML = "Typeof {name:'John', age:34} is " + typeof {name:'ABC', age:34};
+
+    </script>
+    <!--Example end here -->
+
+    <div class="section example-description">
+        <ul>
+            <li class="item">variable defined with no value has 'undefined' value.</li>
+            <li class="item">Array indexes are zero-based.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section example">
+    <h2>Example 3</h2>
+    <!--Example starts here -->
+    <p id="type"></p>
+    <p id="type0"></p>
+    <p id="type1"></p>
+    <p id="type2"></p>
+    <p id="type3"></p>
+    <p id="type4"></p>
+    <p id="type5"></p>
+    <p id="type6"></p>
+    <p id="type7"></p>
+    <script>
+        var myvariable;
+        document.getElementById("type").innerHTML = "Typeof 'var myvariable;' is " + typeof (myvariable);
+        myvariable = undefined;
+        document.getElementById("type0").innerHTML = "Typeof 'var myvariable;' is " + typeof (myvariable);
+        document.getElementById("type1").innerHTML = "Typeof John is " + typeof "John";
+        document.getElementById("type2").innerHTML = "Typeof 3.14 is " + typeof 3.14;
+        document.getElementById("type3").innerHTML = "Typeof false is " + typeof false;
+        document.getElementById("type4").innerHTML = "Typeof [1,2,3,4] is " + typeof [1,2,3,4];
+        document.getElementById("type5").innerHTML = "Typeof {name:'John', age:34} is " + typeof {name:'ABC', age:34};
+
+        myvariable = "abc";
+        document.getElementById("type6").innerHTML = "Typeof 'var myvariable;' is " + typeof (myvariable);
+        myvariable = null;
+        document.getElementById("type7").innerHTML = "Typeof 'var myvariable;' is " + typeof (myvariable);
+
+    </script>
+    <!--Example end here -->
+
+    <div class="section example-description">
+        <ul>
+            <li class="item"><b>typeof</b> operator is used to find the type of a JavaScript variable.</li>
+            <li class="item"><b>typeof</b> variable without a value is <b>undefined</b>.</li>
+            <li class="item"><b>typeof</b> null is <b>object</b>.</li>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>

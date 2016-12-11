@@ -1,0 +1,4 @@
+- Private properties
+- Public method
+
+
